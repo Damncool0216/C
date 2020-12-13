@@ -95,6 +95,12 @@ void Chess_board(void)
         printf("\n");
     }
 }
+
+//!利用switch语句求输入某年某月某日，判断这一天是这一年的第几天
+void day_pd(void)
+{
+    
+}
 int main()
 {
  //even_number_pd();
