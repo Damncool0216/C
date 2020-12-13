@@ -1,6 +1,6 @@
 #include<stdio.h>
 //!判断偶数
-void oushupd(void)
+void even_number_pd(void)
 {
     int value;
     printf("请输入一个整数：\n");
@@ -11,7 +11,7 @@ void oushupd(void)
     printf("%d 不是偶数\n",value);
 }
 //!输入三个整数，求其中最大值
-void maxof3(void)
+void max_of_3(void)
 {
     int a,b,c,max;
     printf("请输入三个整数：");
@@ -25,7 +25,7 @@ void maxof3(void)
 }
 
 //!输入四个整数，要求从大到小排序
-void maxtominsort(void)
+void maxtomin_sort(void)
 {
     int i,a[4],j,tmp;
     printf("请输入四个整数：\n");
@@ -62,11 +62,47 @@ void abf(void)
     else
     printf("%d",a+b);
 }
+//!判断闰年
+void leap_year_pd(void)
+{
+    int y;
+    printf("请输入年份：");
+    scanf("%d",&y);
+    if((y%4==0&&y%100!=0)||y%400==0)
+        printf("\n%d 是闰年",y);
+    else
+        printf("\n%d 不是闰年",y );
+}
+//!阶梯问题,每步跨两阶最后剩一阶，每步三阶剩两阶，每步五阶剩四阶，每步六阶剩五阶，每步七阶刚好，求所有三位阶梯数
+void stair_p(void)
+{
+    int i;
+    for(i=100;i<1000;i++)
+    if(i%2==1&&i%3==2&&i%5==4&&i%6==5&&i%7==0)
+    printf("the number of stairs is %d\n",i);
+}
+//!编程输出国际象棋棋盘
+void Chess_board(void)
+{
+    int i,j;
+    for(i=0;i<8;i++)
+    {
+        for(j=0;j<8;j++)
+        if((i+j)%2==0)
+        printf("%c%c",219,219);
+        else
+        printf(" ");
+        printf("\n");
+    }
+}
 int main()
 {
- //oushupd();
- //maxof3();
- //maxtominsort();
- abf();
+ //even_number_pd();
+ //max_of_3();
+ //maxtomin_sort();
+ //abf();
+ //leap_year_pd();
+ //stair_p();
+ Chess_board();
  return 0;
 }
