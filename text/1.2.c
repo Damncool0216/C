@@ -99,8 +99,47 @@ void Chess_board(void)
 //!利用switch语句求输入某年某月某日，判断这一天是这一年的第几天
 void day_pd(void)
 {
-    
+    int y,m,d,result=0;
+    printf("请分别输入年月日：");
+    scanf("%d %d %d",&y,&m,&d);
+    switch(m)
+    {
+        case 1:result=d;
+        case 2:result=d+31;
+        case 3:result=d+31+28;
+        case 4:result=d+31+28+31;
+        case 5:result=d+31+28+31+30;
+        case 6:result=d+31+28+31+30+31;
+        case 7:result=d+31+28+31+30+30+30;
+        case 8:result=d+31+28+31+30+30+30+31;
+        case 9:result=d+31+28+31+30+30+30+31+31;
+        case 10:result=d+31+28+31+30+30+30+31+31+30;
+        case 11:result=d+31+28+31+30+30+30+31+31+30+31;
+        case 12:result=d+31+28+31+30+30+30+31+31+30+31+30;
+    }
+    if(m>2&&(y%4==0&&y%100!=0)||y%400==0)//?判断闰年 若为闰年超过二月的要加一天；
+    result++;
+    printf("这天是这一年的第%d天",result);
 }
+
+//!简单计算器
+void simple_calculator(void)
+{
+    float a,b;
+    char c;
+    float result;
+    printf("输入格式：a(+,-,*,/)b\n");
+    scanf("%f%c%f",&a,&c,&b);
+    switch(c)
+    {
+        case '+':result=a+b;break;
+        case '-':result=a-b;break;
+        case '*':result=a*b;break;
+        case '/':result=a/b;break;
+    }
+    printf("结果为%f",result);
+}
+//
 int main()
 {
  //even_number_pd();
@@ -109,6 +148,8 @@ int main()
  //abf();
  //leap_year_pd();
  //stair_p();
- Chess_board();
+ //Chess_board();
+ //day_pd();
+ simple_calculator();
  return 0;
 }
