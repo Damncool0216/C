@@ -150,6 +150,6 @@ int main()
  //stair_p();
  //Chess_board();
  //day_pd();
- simple_calculator();
+ //simple_calculator();
  return 0;
 }
