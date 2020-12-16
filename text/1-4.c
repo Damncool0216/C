@@ -105,6 +105,27 @@ void random_pd_factors(void)
  if(a[i]%5==0&&a[i]>=5)
  printf("%d ",a[i]);
 }
+//!一块钱兑换方案，如果要将整钱兑换成零钱，那么一元钱可兑换成一角、两角或五角，问有几种兑换方案
+void one_dollar_exchange(void)
+{
+    int y,l,w;
+    for(y=0;y<=10;y++)
+    for(l=0;l<=5;l++)
+    for(w=0;w<=2;w++)
+    if(y+l*2+w*5==10)
+    printf("一角%d个 两角%d个 五角%d个\n",y,l,w);
+}
+
+//!输出0~9组成的所有无重复的三位数
+void pr_number(void)
+{
+    int bw,sw,gw;//*定义百位，十位，个位数
+    for(bw=1;bw<10;bw++)
+    for(sw=1;sw<10;sw++)
+    for(gw=0;gw<10;gw++)
+    if(bw!=sw&&bw!=gw&&sw!=gw)
+    printf("%d\t",bw*100+sw*10+gw);
+}
 
 
  int main()
@@ -115,7 +136,9 @@ void random_pd_factors(void)
      //dd_sum();
      //special_equations();
      //find_factors();
-     random_pd_factors();
+     //random_pd_factors();
+     //one_dollar_exchange();
+     pr_number();
      return 0;
  }
 
