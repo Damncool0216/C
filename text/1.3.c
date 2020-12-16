@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include<math.h>
 //!用#打印三角形
 void pr_triangle(void)
 {
@@ -14,7 +16,6 @@ void pr_triangle(void)
         printf("\n");
     }
 }
-
 //!用*打印菱形
 void pr_rhombus(void)
 {
@@ -40,9 +41,64 @@ void pr_rhombus(void)
     }
 
 }
+//!打印余弦曲线
+ void pr_cos(void)
+ {
+  double y;
+  int x,m;
+  for(y=1;y>=-1;y-=0.1)
+  {
+      m=acos(y)*10;
+      for(x=0;x<=64;x++)
+      {
+          if(x==m||x==64-m)
+          printf("*");
+          else
+          printf(" ");
+      }
+      printf("\n");
+  }
+}
+//!打印正弦曲线(感觉有点奇怪)
+void pr_sin(void)
+{
+  double y;
+  int x,m;
+  for(y=1;y>=-1;y-=0.1)
+    {
+      m=asin(y)*10;
+      for(x=0;x<=64;x++)
+      {
+          if(x==m||x==32-m||(x==64-m&&m>=32))
+          printf("*");
+          else
+          printf(" ");
+      }
+      printf("\n");
+    }
+}
+//!打印九九乘法表
+void pr_multiplication_table(void)
+{
+    int i,j;
+    for(i=0;i<=9;i++)
+    {
+    for(j=1;j<=i;j++)
+    printf("%d * %d = %-4d",i,j,i*j);
+    printf("\n");
+    }
+}
+//!打印杨辉三角
+void pr_yanghui_triangle(void)
+{
+    
+}
 int main()
 {
     //pr_triangle();
-    pr_rhombus();
+    //pr_rhombus();
+    // pr_cos();
+    //pr_sin();
+    pr_multiplication_table();
     return 0;
 }
