@@ -1,3 +1,5 @@
+//*多重循环打印图形
+
 #include <stdio.h>
 #include<math.h>
 //!用#打印三角形
@@ -91,7 +93,25 @@ void pr_multiplication_table(void)
 //!打印杨辉三角
 void pr_yanghui_triangle(void)
 {
-    
+    int a[11][11];
+    int i,j;
+    for(i=1;i<11;i++)
+    {
+        a[i][i]=1;              //*对角线元素为1
+        a[i][1]=1;
+    }
+
+    for(i=3;i<11;i++)
+    {
+        for(j=2;j<i;j++)
+        a[i][j]=a[i-1][j-1]+a[i-1][j];
+    }
+    for(i=1;i<11;i++)
+    {
+        for(j=1;j<=i;j++)
+        printf("%d ",a[i][j]);
+        printf("\n");
+    }
 }
 int main()
 {
@@ -99,6 +119,7 @@ int main()
     //pr_rhombus();
     // pr_cos();
     //pr_sin();
-    pr_multiplication_table();
+    //pr_multiplication_table();
+    pr_yanghui_triangle();
     return 0;
 }

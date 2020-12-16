@@ -1,3 +1,5 @@
+//*条件判断
+
 #include<stdio.h>
 //!判断偶数
 void even_number_pd(void)

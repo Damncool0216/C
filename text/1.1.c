@@ -1,6 +1,7 @@
+//*进制转换
+
 #include<stdio.h>
 #include<string.h>
-//?进制转换
 //! 十进制转换十六进制
 void d_n(void)
 {
