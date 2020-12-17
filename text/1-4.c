@@ -68,9 +68,9 @@ void dd_sum(void)
 void special_equations(void)
 {
     int x,y,z;
-    for(x=1;x<10;x++)
-    for(y=1;y<10;y++)
-    for(z=1;z<10;z++)
+    for(x=1;x<10;x++)//*x在最高位 不能为0
+    for(y=1;y<10;y++)//*同上
+    for(z=0;z<10;z++)
     {
         if(100*x+10*y+z+100*y+10*z+z==532)
         printf("x= %d y= %d z= %d\n",x,y,z);
@@ -191,6 +191,27 @@ void swap_number(void)
          printf("=%ld\n",n);
      }
  }
+
+ //!已知两个三位数abc和xyz，其中a、b、c、x、y、z未必是不同的；而ax、by、cz是三个两位数。试编程求三位数abc和xyz
+ void find_numbers(void)
+ {
+     int i,j;
+     int count=0;
+     for(i=100;i<1000;i++)
+     for(j=100;j<1000;j++)
+     {
+      int a=i/100%10,b=i/10%10,c=i%10;
+      int x=j/100%10,y=j/10%10,z=j%10;
+      int ax=a*10+x,by=b*10+y,cz=c*10+z;
+      if(a!=0&&b!=0&&c!=0&&x!=0&&ax!=by&&ax!=cz&&by!=cz)
+      {
+          printf("abc=%d\txyz=%d\n",i,j);
+          count++;
+          if(count>10)//*可以输入的数太多了 所以限制了个数
+          return;
+      }
+     }
+ }
  int main()
  {
      //sequence_sum();
@@ -203,7 +224,8 @@ void swap_number(void)
      //one_dollar_exchange();
      //pr_number();
      //swap_number();
-     sum_of_sqares();
+     //sum_of_sqares();
+     //find_numbers();
      return 0;
  }
 
