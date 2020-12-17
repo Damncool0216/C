@@ -127,7 +127,70 @@ void pr_number(void)
     printf("%d\t",bw*100+sw*10+gw);
 }
 
-
+//!对调数问题，
+void swap_number(void)
+{
+    int n,i,flag=1;
+    printf("please input a integer number:");
+    scanf("%d",&n);
+    while(1)
+    {
+        if(n<10||n>=100||n%10==0||(n%10==n/10%10))//*判断输入的n是否符合对调数规定
+        {
+            printf("input error!\nplase input again:");
+            scanf("%d",&n);
+        }
+        else
+        break;
+    }
+    for(i=10;i<100;i++) //*穷举每一个两位数
+    {
+        if(i%10==i/10%10||i%10==0)//*判断是否符合对调数规定
+        continue;
+        else
+        { 
+            int sn=n%10*10+n/10;//*百个位对调后的n
+            int si=i%10*10+i/10;//*同上
+            if((n+i)==sn+si)
+            {
+                printf("%d + %d = %d + %d\n",n,i,sn,si);
+                flag=0;
+            }
+        }
+    }
+    if(flag==1)
+    printf("NOT FOUND");
+}
+//!求解平方和 ，任意给出一个自然数k，数k不为0，计算其各位数字的平方和k1，再计算k1的各位数字的平方和k2，重复此过程，最终得到数1或者145，此时再做数的平方和运算它最终结果将始终是1或145。
+ void sum_of_sqares(void)
+ {
+     long int a[10],n,i;
+     p: printf("please input a number:");
+     scanf("%d",&n);
+     if(n==0)
+     goto p;
+     while(n!=1&&n!=145)
+     {
+         printf("n=%ld->",n);
+         i=1;
+         while(n>0)
+         {
+             a[i++]=n%10;
+             n/=10;
+         }
+         n=0;
+         i--;
+         while(i>=1)
+         {
+             printf("%ld*%ld",a[i],a[i]);
+             if(i>1)
+             printf("+");
+             n+=a[i]*a[i];
+             i--;
+         }
+         printf("=%ld\n",n);
+     }
+ }
  int main()
  {
      //sequence_sum();
@@ -138,7 +201,9 @@ void pr_number(void)
      //find_factors();
      //random_pd_factors();
      //one_dollar_exchange();
-     pr_number();
+     //pr_number();
+     //swap_number();
+     sum_of_sqares();
      return 0;
  }
 
