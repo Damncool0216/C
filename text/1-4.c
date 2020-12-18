@@ -212,6 +212,20 @@ void swap_number(void)
       }
      }
  }
+
+ //!设x是一个四位数，它的9倍恰好是其反序数，编写程序求x的值（反序数就是将整数的数字倒过来形成的整数，如9568的反序数是8659）
+ void a(void)
+ {
+     int x;
+     for(x=1000;x<10000;x++)
+     {
+         int gw=x%10,sw=x/10%10,bw=x/100%10,cw=x/1000%10;
+         if(gw==0)
+         continue;
+         else if((gw*1000+sw*100+bw*10+cw)==(x*9))
+         printf("%d\t",x);
+     }
+ }
  int main()
  {
      //sequence_sum();
@@ -226,6 +240,7 @@ void swap_number(void)
      //swap_number();
      //sum_of_sqares();
      //find_numbers();
+     a();
      return 0;
  }
 
