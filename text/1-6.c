@@ -89,6 +89,8 @@ void Palindrome(void)
     else
     printf("palindrome");
 }
+//!字符升序排列，将已经升序排好的字符串数组a和字符串数组b按升序归并到字符数组c中并输出
+
 
 
 int main()
